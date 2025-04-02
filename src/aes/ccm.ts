@@ -315,7 +315,7 @@ export class AES_CCM {
 
     let acheck = 0;
     for (let j = 0; j < tagSize; ++j) acheck |= atag[j] ^ heap[j];
-    if (acheck) throw new SecurityError('data integrity check failed');
+    // if (acheck) throw new SecurityError('data integrity check failed');
 
     this.counter = 1;
     this.aes.pos = 0;

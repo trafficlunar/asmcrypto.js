@@ -1,7 +1,7 @@
 {
-  "name": "asmcrypto.js",
+  "name": "@trafficlunar/asmcrypto.js",
   "version": "2.3.2",
-  "description": "Asm.js implementation of WebCrypto API",
+  "description": "Fork of asmcrypto.js to stop data integrity check in AES-CCM",
   "homepage": "https://github.com/asmcrypto/asmcrypto.js",
   "main": "asmcrypto.all.js",
   "module": "asmcrypto.all.es8.js",

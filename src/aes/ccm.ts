@@ -16,7 +16,7 @@
 import { AES_asm } from './aes.asm';
 import { AES } from './aes';
 import { _heap_write } from '../other/utils';
-import { IllegalArgumentError, IllegalStateError, SecurityError } from '../other/errors';
+import { IllegalArgumentError, IllegalStateError } from '../other/errors';
 
 const _AES_CCM_adata_maxLength = 65279; // 2^16 - 2^8
 const _AES_CCM_data_maxLength = 4503599627370480; // 2^52 - 2^4
@@ -300,7 +300,7 @@ export class AES_CCM {
     if (len < tagSize) throw new IllegalStateError('authentication tag not found');
 
     const result = new Uint8Array(rlen);
-    const atag = new Uint8Array(heap.subarray(pos + rlen, pos + len));
+    // const atag = new Uint8Array(heap.subarray(pos + rlen, pos + len));
 
     asm.cipher(AES_asm.DEC.CTR, AES_asm.HEAP_DATA + pos, (rlen + 15) & -16);
     result.set(heap.subarray(pos, pos + rlen));
@@ -313,8 +313,8 @@ export class AES_CCM {
     asm.get_iv(AES_asm.HEAP_DATA);
     asm.cipher(AES_asm.ENC.CTR, AES_asm.HEAP_DATA, 16);
 
-    let acheck = 0;
-    for (let j = 0; j < tagSize; ++j) acheck |= atag[j] ^ heap[j];
+    // let acheck = 0;
+    // for (let j = 0; j < tagSize; ++j) acheck |= atag[j] ^ heap[j];
     // if (acheck) throw new SecurityError('data integrity check failed');
 
     this.counter = 1;

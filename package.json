@@ -1,6 +1,6 @@
 {
   "name": "@trafficlunar/asmcrypto.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fork of asmcrypto.js to stop data integrity check in AES-CCM",
   "homepage": "https://github.com/trafficlunar/asmcrypto.js",
   "main": "asmcrypto.all.js",

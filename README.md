@@ -1,4 +1,3 @@
-asmCrypto 
-=========
+# @trafficlunar/asmCrypto
 
-Not maintained anymore, use a native or WASM implementation instead.
+A fork of asmcrypto.js which stops checking for data integrity in AES-CCM
